@@ -17,7 +17,7 @@ abstract class BaseRecyclerViewAdapter<T : Any, VB : ViewBinding> :
 
     override fun getItemCount() = items.size
 
-    fun addItems(list: List<T>){
+    fun addItems(list: List<T>) {
         items = list as MutableList<T>
         notifyDataSetChanged()
     }

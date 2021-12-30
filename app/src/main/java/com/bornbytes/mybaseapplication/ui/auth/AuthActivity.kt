@@ -1,8 +1,8 @@
-package com.bornbytes.mybaseapplication
+package com.bornbytes.mybaseapplication.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bornbytes.mybaseapplication.ui.auth.LoginFragment
+import com.bornbytes.mybaseapplication.R
 import com.bornbytes.mybaseapplication.util.replaceFragment
 
 class AuthActivity : AppCompatActivity() {

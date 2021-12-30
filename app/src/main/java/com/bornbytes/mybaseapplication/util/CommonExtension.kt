@@ -102,7 +102,8 @@ fun Activity.startActivity(cls: Class<*>, finishCallingActivity: Boolean = false
     }
 }
 
-fun FragmentManager.replaceFragment(resId: Int, fragment: Fragment) = this.beginTransaction().replace(resId, fragment).commitNow()
+fun FragmentManager.replaceFragment(resId: Int, fragment: Fragment) =
+    this.beginTransaction().replace(resId, fragment).commitNow()
 
 //Email Validation
 fun String.isValidEmail(): Boolean =

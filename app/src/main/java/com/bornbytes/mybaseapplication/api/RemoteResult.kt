@@ -4,6 +4,7 @@ import okhttp3.ResponseBody
 
 
 sealed class RemoteResult<out T> {
+
     data class Success<T>(val value: T) : RemoteResult<T>()
 
     data class Failure(

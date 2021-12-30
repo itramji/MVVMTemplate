@@ -13,14 +13,14 @@ import com.bornbytes.mybaseapplication.repository.BaseRepository
 
 abstract class BaseFragment<VM : ViewModel, VB : ViewBinding, R : BaseRepository> : Fragment() {
 
-    abstract fun getViewModelClass() : Class<VM>
+    abstract fun getViewModelClass(): Class<VM>
 
     abstract fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): VB
 
-    abstract fun getFragmentRepository() : R
+    abstract fun getFragmentRepository(): R
 
     lateinit var binding: VB
     lateinit var viewModel: VM

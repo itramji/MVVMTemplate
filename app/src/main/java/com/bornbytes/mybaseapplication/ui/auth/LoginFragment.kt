@@ -25,12 +25,13 @@ class LoginFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepo
 
     override fun getViewModelClass() = AuthViewModel::class.java
 
-    override fun getFragmentRepository() = AuthRepository(remoteDataSource.buildApi(BaseApi::class.java))
+    override fun getFragmentRepository() =
+        AuthRepository(remoteDataSource.buildApi(BaseApi::class.java))
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
-            when(it){
+            when (it) {
                 is RemoteResult.Success -> {
                     //Show api success state ui
                 }
