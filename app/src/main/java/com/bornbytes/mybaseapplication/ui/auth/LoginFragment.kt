@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.bornbytes.mybaseapplication.api.BaseApi
 import com.bornbytes.mybaseapplication.api.RemoteResult
-import com.bornbytes.mybaseapplication.ui.base.BaseFragment
 import com.bornbytes.mybaseapplication.databinding.LoginFragmentBinding
 import com.bornbytes.mybaseapplication.repository.AuthRepository
+import com.bornbytes.mybaseapplication.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.login_fragment.*
 
 class LoginFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepository>() {
@@ -26,7 +25,7 @@ class LoginFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepo
     override fun getViewModelClass() = AuthViewModel::class.java
 
     override fun getFragmentRepository() =
-        AuthRepository(remoteDataSource.buildApi(BaseApi::class.java))
+        AuthRepository(remoteDataSource.buildApi())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,9 +34,7 @@ class LoginFragment : BaseFragment<AuthViewModel, LoginFragmentBinding, AuthRepo
                 is RemoteResult.Success -> {
                     //Show api success state ui
                 }
-                is RemoteResult.Failure -> {
-                    //Handle error
-                }
+                is RemoteResult.Failure -> handleApiError(it)
                 is RemoteResult.Loading -> {
                     //Show loading indicator
                 }
